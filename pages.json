@@ -1,17 +1,102 @@
 {
-	"pages": [{
-		"path": "pages/index/index",
+	"pages": [
+		 {
+		"path": "pages/home/home",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "小孙的商城",
+			"enablePullDownRefresh": false
 		}
+
+	}, {
+		"path": "pages/cate/cate",
+		"style": {
+			"navigationBarTitleText": "小孙的商城",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/my/my",
+		"style": {
+			"navigationBarTitleText": "小孙的商城",
+			"enablePullDownRefresh": false
+		}
+
+	}, {
+		"path": "pages/cart/cart",
+		"style": {
+			"navigationBarTitleText": "小孙的商城",
+			"enablePullDownRefresh": false
+		}
+
 	}],
+	// 分包
+	"subPackages":[
+		// 里面的一个对象就是一个分包
+		{
+			// 根目录
+			"root":"subpkg",
+			"pages":[{
+                    "path" : "goods_details/goods_details",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		}
+	],
+	
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "小孙的商城",
+		"navigationBarBackgroundColor": "#C00000",
+		"backgroundColor": "#FFFFFF",
 		"app-plus": {
 			"background": "#efeff4"
 		}
+	},
+	"tabBar":{
+		"selectedColor":"#C00000",
+		"list":[
+			{
+				"pagePath":"pages/home/home",
+				"text":"首页",
+				"iconPath":"static/tas-icon/home.png",
+				"selectedIconPath":"static/tas-icon/home-o.png"
+			},
+			{
+				"pagePath":"pages/cate/cate",
+				"text":"分类",
+				"iconPath":"static/tas-icon/category.png",
+				"selectedIconPath":"static/tas-icon/category-o.png"
+			},
+			{
+				"pagePath":"pages/cart/cart",
+				"text":"购物车",
+				"iconPath":"static/tas-icon/cart.png",
+				"selectedIconPath":"static/tas-icon/cart-o.png"
+			},
+			{
+				"pagePath":"pages/my/my",
+				"text":"我的",
+				"iconPath":"static/tas-icon/my.png",
+				"selectedIconPath":"static/tas-icon/my-o.png"
+			}
+		]
 	}
+	
+	
+		
+	
 }
