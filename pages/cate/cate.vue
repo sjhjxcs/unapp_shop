@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- 在滑动区域之前使用自定义组件 -->
+		<!-- <my-search :bgcolor="'black'" :radius="3"></my-search> -->
+		<!-- 为自定义组件绑定事件，要在组件的内部使用$emit去触发这个事件 -->
+		<my-search @click="gotoSearch">
+		</my-search>
 		<view class="scroll_view_container">
 			<!-- 左侧滑动区域 -->
 			
@@ -49,7 +54,7 @@
 			// 获取当前系统的信息
 			const sysInfo = uni.getSystemInfoSync()
 			// 为wh窗口可用高度动态赋值
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight-50
 			this.getCateList()
 		},
 		methods:{
@@ -71,6 +76,11 @@
 			gotoGoodsList(index3){
 				uni.navigateTo({
 					url:'../../subpkg/goods_list/goods_list?cid='+index3
+				})
+			},
+			gotoClickHandle(){
+				uni.navigateTo({
+					url:"/subpkg/search/search"
 				})
 			}
 		},

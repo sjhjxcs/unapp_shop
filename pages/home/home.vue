@@ -1,5 +1,10 @@
 <template>
 	<view>
+		<!-- 搜索组件 -->
+		<view class="search_box">
+			<my-search @click="gotoHome">
+			</my-search>
+		</view>
 		 <!-- 轮播图区域 -->
 		    <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 		      <!-- 循环渲染轮播图的 item 项 -->
@@ -126,7 +131,12 @@
 					})
 				})
 				this.floorList  = res.message
-				console.log(this.floorList)
+				// console.log(this.floorList)
+			},
+			gotoHome(){
+				uni.navigateTo({
+					url:"../../subpkg/search/search"
+				})
 			}
 		}
 	}
@@ -178,4 +188,13 @@ swiper{
 	
 }
 
+// 头部搜索框的样式
+.search_box{
+	// 设置定位效果为“吸顶”
+	position: sticky;
+	//吸顶的位置
+	top: 0;
+	// 防止轮播图把它覆盖，提高层级 
+	z-index: 999;
+}
 </style>

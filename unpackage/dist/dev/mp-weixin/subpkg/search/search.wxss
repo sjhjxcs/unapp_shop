@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.search_box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.sugg_list .sugg_item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
+  font-size: 12px;
+  padding: 13px 0;
+}
+.sugg_list .sugg_item .goods_name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 3px;
+}
+.history_box {
+  padding: 0 5px;
+}
+.history_box .history_title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  align-items: center;
+  font-size: 13px;
+  border-bottom: 1px solid #efefef;
+}
+.history_box .history_list uni-tag {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+

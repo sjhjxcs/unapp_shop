@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "小孙的商城",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "my-search": "/components/my-search/my-search"
+  }
 }
