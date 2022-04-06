@@ -91,6 +91,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    myGoods: function() {
+      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 105))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -128,7 +151,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
 //
 //
 //
@@ -137,10 +164,81 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      // 请求参数对象
+      queryObj: {
+        // 查询关键字
+        query: '',
+        // 商品分类id
+        cid: '',
+        // 页码数
+        pagenum: 1,
+        // 每页共展示多少条数据
+        pagesize: 10 },
 
 
-  } };exports.default = _default;
+      // 保存数据的数组
+      goodsList: [],
+      // 商品的总条数
+      total: 0,
+      // 节流阀
+      isloading: false };
+
+
+  },
+  onLoad: function onLoad(options) {
+    console.log(options);
+    this.queryObj.query = options.query || '';
+    this.queryObj.cid = options.cid || '';
+    // console.log(this.queryObj)
+    // 调用这个获取数据的方法
+    this.getGoodsList();
+  },
+  methods: {
+    getGoodsList: function getGoodsList(cb) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                // 打卡节流阀
+                _this.isloading = true;_context.next = 3;return (
+                  uni.$http.get('/api/public/v1/goods/search', _this.queryObj));case 3:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;
+                // 只要数据请求完毕，就立即按需调用 cb 回调函数
+                cb && cb();
+
+                // 请求完毕之后关闭节流阀
+                _this.isloading = false;if (!(
+                res.meta.status !== 200)) {_context.next = 9;break;}return _context.abrupt("return", uni.$showMsg());case 9:
+                // 重新获取页面数据后，实现新旧数据的拼接
+                _this.goodsList = [].concat(_toConsumableArray(_this.goodsList), _toConsumableArray(res.message.goods));
+                _this.total = res.message.total;
+                console.log(_this.goodsList);case 12:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    // 添加一个触底的事件
+    onReachBottom: function onReachBottom() {
+      // 判断数据是否加载完毕了
+      if (this.queryObj.pagenum * this.queryObj.pagesize >= this.total) {
+        return uni.$showMsg("数据加载完毕了!");
+      }
+      // 防止发起额外的请求，判断是否在请求数据，如果是，不发起额外的请求
+      if (this.isloading) return;
+      // 让页面值+1
+      this.queryObj.pagenum++;
+      // 重新获取列表数据
+      this.getGoodsList();
+    },
+    // 监听页面的onPullDownRefresh事件处理函数
+    onPullDownRefresh: function onPullDownRefresh() {
+      // 重置关键数据
+      this.queryObj.pagenum = 1,
+      this.total = 0,
+      this.isloading = false,
+      this.goodsList = [],
+      // 重新发起数据请求
+      this.getGoodsList(function () {return uni.stopPullDownRefresh();});
+    },
+    gotoGoodsItem: function gotoGoodsItem(goods) {
+      uni.navigateTo({
+        url: '../goods_details/goods_details?goods_id=' + goods.goods_id });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 
