@@ -1,6 +1,6 @@
 
 <template>
-	<view>
+	<view class="goods_list">
 		<view class="goods_item">
 		  <!-- 商品左侧图片区域 -->
 		  <view class="goods_item_left">
@@ -44,7 +44,6 @@
 </script>
 
 <style lang="scss">
-
 .goods_list{
 	.goods_item{
 		display: flex;
@@ -79,4 +78,5 @@
 		
 	}
 }
+
 </style>

@@ -7,7 +7,7 @@ import App from './App'
 import {$http} from  "@escook/request-miniprogram"
 uni.$http = $http
 // 配置请求根路径
-$http.baseUrl = 'https://api-hmugo-web.itheima.net'
+$http.baseUrl = 'https://api-ugo-web.itheima.net'
 // 在请求开始之前做点事情
 $http.beforeRequest = function(options){
 	uni.showLoading({
