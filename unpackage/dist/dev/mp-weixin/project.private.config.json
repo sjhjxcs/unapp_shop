@@ -14,10 +14,10 @@
             "list": [
                 {
                     "name": "",
-                    "pathName": "pages/cate/cate",
+                    "pathName": "pages/cart/cart",
                     "query": "",
-                    "launchMode": "default",
-                    "scene": null
+                    "scene": null,
+                    "launchMode": "default"
                 },
                 {
                     "name": "",
@@ -30,8 +30,8 @@
                     "name": "",
                     "pathName": "subpkg/goods_details/goods_details",
                     "query": "goods_id=395",
-                    "scene": null,
-                    "launchMode": "default"
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

@@ -69,7 +69,9 @@
 </template>
 
 <script>
+	import badgeMix from '../../mixins/tabbar_badge.js'
 	export default {
+		mixins:[badgeMix],
 		data() {
 			return {
 				// 1. 轮播图的数据列表，默认为空数组

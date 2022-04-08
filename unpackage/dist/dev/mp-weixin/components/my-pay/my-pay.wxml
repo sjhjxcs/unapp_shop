@@ -1,0 +1,1 @@
+<view class="my_pay_container"><label data-event-opts="{{[['tap',[['allCheckedHandle',['$event']]]]]}}" class="radio" bindtap="__e"><radio color="#C00000" checked="{{isFullCheck}}"></radio><text>全选</text></label><view class="amount_box">合计：<text class="amount">{{"¥"+checkPriceCount}}</text></view><view class="btn_pay">{{"计算("+checkedCount+")"}}</view></view>

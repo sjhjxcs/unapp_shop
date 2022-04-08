@@ -36,7 +36,9 @@
 </template>
 
 <script>
+	import badgeMix from '../../mixins/tabbar_badge.js'
 	export default {
+		mixins:[badgeMix],
 		data() {
 			return {
 				// 设置一个当前窗口的高度
