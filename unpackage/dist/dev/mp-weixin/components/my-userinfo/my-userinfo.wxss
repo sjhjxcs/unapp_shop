@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.my-userinfo-container {
+  height: 100%;
+  background-color: #F8F8F8;
+}
+.my-userinfo-container .top-box {
+  height: 400rpx;
+  background-color: #c00000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.my-userinfo-container .top-box .avatar {
+  display: block;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  border: 2px solid white;
+  box-shadow: 0 1px 5px black;
+}
+.my-userinfo-container .top-box .nickname {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.my-userinfo-container .panel-list {
+  background-color: white;
+  position: relative;
+}
+.my-userinfo-container .panel-list .panel1 {
+  position: relative;
+  margin: 0 10px;
+}
+.my-userinfo-container .panel-list .panel1 .panel1-body {
+  background-color: white;
+  width: 100%;
+  height: 70px;
+  position: absolute;
+  top: -10px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-around;
+}
+.my-userinfo-container .panel-list .panel1 .panel1-body .panel1-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.my-userinfo-container .panel-list .panel1 .panel1-body .panel1-item text {
+  font-size: 14px;
+  color: #000000;
+}
+.my-userinfo-container .panel-list .panel2 {
+  position: absolute;
+  margin-top: 70px;
+  width: 100%;
+  background-color: white;
+}
+.my-userinfo-container .panel-list .panel2 .panel2-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.my-userinfo-container .panel-list .panel2 .panel2-body {
+  height: 110px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-around;
+}
+.my-userinfo-container .panel-list .panel2 .panel2-body .panel2-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.my-userinfo-container .panel-list .panel2 .panel2-body .panel2-item image {
+  width: 50px;
+  height: 50px;
+}
+.my-userinfo-container .panel-list .panel2 .panel2-body .panel2-item text {
+  font-size: 12px;
+  color: #6A6A6A;
+}
+.my-userinfo-container .panel-list .panel3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 150px;
+  top: 220px;
+}
+.my-userinfo-container .panel-list .panel3 .panel3-list-item {
+  margin: 0 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my-userinfo-container .panel-list .panel3 .panel3-list-item text {
+  color: #606266;
+  font-size: 14px;
+  font-weight: bold;
+}
+

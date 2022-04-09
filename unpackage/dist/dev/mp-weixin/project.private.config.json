@@ -13,8 +13,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "",
-                    "pathName": "pages/cart/cart",
+                    "name": "pages/my/my",
+                    "pathName": "pages/my/my",
                     "query": "",
                     "scene": null,
                     "launchMode": "default"

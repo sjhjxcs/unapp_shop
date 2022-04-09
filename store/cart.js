@@ -9,8 +9,10 @@ export default {
 		// 购物车的数组，用来存放购物车中的每个商品的信息对象
 		// 每个商品的信息对象，都包含如下6个属性：
 		// {goods_id,goods_name,goods_price,goods_count,goods_small_logo,goods_state}
-		cart: JSON.parse(uni.getStorageSync('cart') || '[]')
+		cart: JSON.parse(uni.getStorageSync('cart') || '[]'),
 		// JSON.parse把字符串解析为数组
+	
+		
 	}),
 	// 模块的mutations方法
 	mutations: {

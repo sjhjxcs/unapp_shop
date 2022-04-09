@@ -108,18 +108,14 @@
 		methods: {
 			// 把 m_cart模块中的addToCart方法映射到当前页面使用
 			...mapMutations('m_cart', ['addToCart']),
-			// 获取商品详情数据
-			async getGoodsDetails(goods_id) {
-				const {
-					data: res
-				} = await uni.$http.get('/api/public/v1/goods/detail', {
-					goods_id
-				})
-				// 使用字符串的 replace() 方法，将 webp 的后缀名替换为 jpg 的后缀名
-				res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g,
-					'<img style="display:block;" ').replace(/webp/g, 'jpg')
-				this.goods_info = res.message
-				console.log(this.goods_info)
+			// 定义请求商品详情数据的方法
+			async getGoodsDetail(goods_id) {
+			  const { data: res } = await uni.$http.get('/api/public/v1/goods/detail', { goods_id })
+			  if (res.meta.status !== 200) return uni.$showMsg()
+			
+			  // 使用字符串的 replace() 方法，将 webp 的后缀名替换为 jpg 的后缀名
+			  res.message.goods_introduce = res.message.goods_introduce.replace(/<img /g, '<img style="display:block;" ').replace(/webp/g, 'jpg')
+			  this.goods_info = res.message
 			},
 			// 实现轮播图中图片的预览效果
 			preview(index1) {
